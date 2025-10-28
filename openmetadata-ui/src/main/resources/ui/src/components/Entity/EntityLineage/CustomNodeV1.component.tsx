@@ -267,7 +267,7 @@ const CustomNodeV1 = (props: NodeProps) => {
       data-testid={`lineage-node-${fullyQualifiedName}`}>
       {isRootNode && (
         <div className="lineage-node-badge-container">
-          <div className="lineage-node-badge">{t('label.base')}</div>
+          <div className="lineage-node-badge" />
         </div>
       )}
 
