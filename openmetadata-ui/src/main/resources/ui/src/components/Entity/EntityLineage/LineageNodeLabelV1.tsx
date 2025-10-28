@@ -58,7 +58,7 @@ const EntityLabel = ({ node }: LineageNodeLabelPropsExtended) => {
           <Typography.Text
             className="m-b-0 d-flex text-left text-grey-muted w-54 entity-header-name"
             data-testid="entity-header-name">
-            {node.serviceType}
+            {node.serviceType} | {node.entityType}
           </Typography.Text>
           <Typography.Text
             className="m-b-0 d-block text-left entity-header-display-name text-md font-medium w-54"
