@@ -156,6 +156,7 @@ const CustomNodeV1 = (props: NodeProps) => {
     loadChildNodesHandler,
     activeLayer,
     dataQualityLineage,
+    redraw,
   } = useLineageProvider();
 
   const {

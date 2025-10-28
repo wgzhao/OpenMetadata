@@ -21,9 +21,10 @@ import { ReactComponent as MappingIcon } from '../../../assets/svg/node-mapping.
 import { EntityType } from '../../../enums/entity.enum';
 import { ModelType, Table } from '../../../generated/entity/data/table';
 import { getEntityName } from '../../../utils/EntityUtils';
-import { getServiceIcon } from '../../../utils/TableUtils';
+import { getEntityTypeIcon, getServiceIcon } from '../../../utils/TableUtils';
 import { SourceType } from '../../SearchedData/SearchedData.interface';
 import './lineage-node-label.less';
+import { capitalize } from 'lodash';
 
 interface LineageNodeLabelProps {
   node: SourceType;
@@ -55,11 +56,19 @@ const EntityLabel = ({ node }: LineageNodeLabelPropsExtended) => {
           {getServiceIcon(node)}
         </div>
         <Space align="start" direction="vertical" size={0}>
-          <Typography.Text
-            className="m-b-0 d-flex text-left text-grey-muted w-54 entity-header-name"
-            data-testid="entity-header-name">
-            {node.serviceType} | {node.entityType}
-          </Typography.Text>
+          <Space
+            align="start"
+            className="entity-header-name"
+            direction="horizontal"
+            size={6}>
+            <Typography.Text className="m-b-0 d-flex text-left text-grey-muted node-service-type">
+              {node.serviceType}
+            </Typography.Text>
+            {getEntityTypeIcon(node.entityType)}
+            <Typography.Text className="m-b-0 d-flex text-left text-grey-muted node-entity-type">
+              {capitalize(node.entityType)}
+            </Typography.Text>
+          </Space>
           <Typography.Text
             className="m-b-0 d-block text-left entity-header-display-name text-md font-medium w-54"
             data-testid="entity-header-display-name"
